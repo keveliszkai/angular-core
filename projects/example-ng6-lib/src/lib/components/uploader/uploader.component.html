@@ -1,0 +1,25 @@
+<div *ngIf="showImage" class="col-md-3">
+
+    <h3>{{title}}</h3>
+
+    <div ng2FileDrop [ngClass]="{'nv-file-over': hasBaseDropZoneOver}" (fileOver)="fileOverBase($event)" [uploader]="uploader" class="well my-drop-zone">
+        {{'uploader.base-drop-zone' | translate}}
+    </div>
+
+    <br/> {{'uploader.single' | translate}}
+    <button (click)="fileInput.click()" class="btn btn-primary">Upload</button>
+    <span style="visibility: hidden; position: absolute; overflow: hidden; width: 0px; height:0px;border:none;margin:0; padding:0">
+        <input type="file" #fileInput ng2FileSelect [uploader]="uploader" />
+    </span>
+    <div *ngIf="uploader.isUploading">
+        {{'uploader.progress' | translate}}
+        <div class="progress" style="">
+            <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
+        </div>
+    </div>
+</div>
+
+<label *ngIf="!showImage" class="btn btn-grey btn-file">
+        Tallózás...
+        <input type="file" #fileInput ng2FileSelect [uploader]="uploader" />
+    </label>

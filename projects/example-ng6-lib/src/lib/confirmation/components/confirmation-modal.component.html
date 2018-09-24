@@ -1,0 +1,19 @@
+<ng-template #template>
+    <div class="modal-dialog" style="z-index: 1042;margin:0;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title pull-left">{{ 'app.system-message' | translate }}</h4>
+                <button (click)="reject()" aria-label="Close" class="close pull-right" type="button">
+                <span aria-hidden="true">×</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                <p class="text-center" style="margin: 30px 0 50px;">{{ 'app.are-you-sure' | translate }}</p>
+                <p class="button-group clearfix">
+                    <a (click)="reject()" class="btn btn-red pull-left">{{ 'app.no' | translate }}</a>
+                    <a (click)="confirm()" class="btn btn-green pull-right nomargin">{{ 'app.yes' | translate }}</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</ng-template>
